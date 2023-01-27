@@ -23,7 +23,7 @@ for website_name, website in config['api_websites'].items():
 
     # Load to the Google BigQuery - bronze
     bronze_table_id = f'{project_id}.Landing.bronze_{website_name}'
-    query = f"TRUNCATE TABLE `{bronze_table_id}`"
+    query = f"DROP TABLE `{bronze_table_id}`"
     execute_query(credentials_path, query)
 
     uri = f'gs://landing_jobs/{timestamp}.csv'
